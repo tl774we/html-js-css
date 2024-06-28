@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+    <script>
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const hasLetters = /[a-zA-Z]/.test(password);
+            const hasNumbers = /\d/.test(password);
+            const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+            if (hasLetters && hasNumbers && hasSpecialChars) {
+                document.getElementById("message").innerText = "ລະຫັດຜ່ານນີ້ມີຄວາມປອດໄພ ສູງ";
+            } else if (hasLetters && hasNumbers) {
+                document.getElementById("message").innerText = "ລະຫັດຜ່ານນີ້ມີຄວາມປອດໄພຕຳ";
+            } else {
+                document.getElementById("message").innerText = "ລະຫັດຜ່ານນີ້ໃຊ້ບໍ່ໄດ້";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>ລະຫັດຜ່ານ</h1>
+    <input type="text" id="password" placeholder="ໃສ່ລະຫັດ" oninput="validatePassword()">
+    <p id="message"></p>
+</body>
+</html>
